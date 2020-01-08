@@ -7,7 +7,12 @@ var svg = d3.select('svg')
     .attr('height', height);
 
 
-
+var hover = function(d) { 
+  var div = document.getElementById('tooltip'); 
+  div.style.left = event.pageX +'px'; 
+  div.style.top = event.pageY + 'px'; 
+  div.innerHTML = d.properties.NAME_1; // .NAME_1 represents the text that will be displayed. In this case I need to access the name of every neighborgood
+}; 
 
 
 d3.json('data.json').then(function (data) {
@@ -48,6 +53,7 @@ d3.json('data.json').then(function (data) {
         .append('path')
         .attr('d', geoGenerator)
         .attr('fill', 'black')
+        .on("mouseover", hover);
 
 
 
