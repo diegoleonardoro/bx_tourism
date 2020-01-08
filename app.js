@@ -14,6 +14,10 @@ var hover = function(d) {
   div.innerHTML = d.properties.boro_name; // .boro_name represents the text that will be displayed. In this case I need to access the name of every neighborgood
 }; 
 
+var db = d3.map(); 
+
+var sparkline = d3.charts.sparkline().height(50).width(138); 
+
 
 d3.json('data.json').then(function (data) {
 
