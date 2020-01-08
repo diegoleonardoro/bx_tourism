@@ -1,24 +1,15 @@
 
 var width = 1000;
 var height = 530;
+var db = d3.map(); 
+var sparkline = d3.charts.sparkline().height(50).width(138); 
+
 
 var svg = d3.select('svg')
     .attr('width', width)
     .attr('height', height);
 
-
-var hover = function(d) { 
-  var div = document.getElementById('tooltip'); 
-  div.style.left = event.pageX +'px'; 
-  div.style.top = event.pageY + 'px'; 
-  div.innerHTML = d.properties.boro_name; // .boro_name represents the text that will be displayed. In this case I need to access the name of every neighborgood
-}; 
-
-var db = d3.map(); 
-
-var sparkline = d3.charts.sparkline().height(50).width(138); 
-
-var setDb = function(data) { 
+var setDb = function(data) {  // This function parses data and formats it into a structure that the sparkline function
   data.forEach(function(d) { 
     db.set(d.geoID, [ 
        {"x": 1, "y": +d.q1}, 
@@ -29,9 +20,23 @@ var setDb = function(data) { 
   }); 
 }; 
 
-  var geoID = function (d) {
+
+var geoID = function (d) { //creates unique IDs for each neighbrohood
          return "c" + d.properties.boro_code;
      };
+
+
+var hover = function(d) {
+    var div = document.getElementById('tooltip');
+    div.style.left = d3.event.pageX +'px';
+    div.style.top = d3.event.pageY + 'px';
+    div.innerHTML = d.properties.NAME_1;
+    
+    var id = geoID(d); //unique geoID for the boroigh we are hovering over
+    d3.select("#tooltip").datum(db.get(id)).call(sparkline.draw);  // draws a line chart in the tooltip selection.
+};
+
+
 
   //var click = function (d) {
     //    d3.selectAll('path').attr('fill-opacity', 0.2)
