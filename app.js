@@ -11,7 +11,7 @@ var hover = function(d) {
   var div = document.getElementById('tooltip'); 
   div.style.left = event.pageX +'px'; 
   div.style.top = event.pageY + 'px'; 
-  div.innerHTML = d.properties.NAME_1; // .NAME_1 represents the text that will be displayed. In this case I need to access the name of every neighborgood
+  div.innerHTML = d.properties.boro_name; // .boro_name represents the text that will be displayed. In this case I need to access the name of every neighborgood
 }; 
 
 
