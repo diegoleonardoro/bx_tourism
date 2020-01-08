@@ -18,18 +18,28 @@ var db = d3.map();
 
 var sparkline = d3.charts.sparkline().height(50).width(138); 
 
+var setDb = function(data) { 
+  data.forEach(function(d) { 
+    db.set(d.geoID, [ 
+       {"x": 1, "y": +d.q1}, 
+       {"x": 2, "y": +d.q2}, 
+       {"x": 3, "y": +d.q3}, 
+       {"x": 4, "y": +d.q4} 
+    ]); 
+  }); 
+}; 
 
-d3.json('data.json').then(function (data) {
+  var geoID = function (d) {
+         return "c" + d.properties.boro_code;
+     };
 
-
-    // var geoID = function (d) {
-    //     return "c" + d.properties.boro_code;
-    // };
-
-    //var click = function (d) {
+  //var click = function (d) {
     //    d3.selectAll('path').attr('fill-opacity', 0.2)
     //    d3.select('#' + geoID(d)).attr('fill-opacity', 1);
     // };
+
+
+d3.json('data.json').then(function (data) {
 
     var bronx_neighborhoods = data.features.filter(obj => { return obj.properties.boro_name === "Bronx" })
 
@@ -59,14 +69,11 @@ d3.json('data.json').then(function (data) {
         .attr('fill', 'black')
         .on("mouseover", hover);
 
-
-
     //.attr('id', geoID)
     //.on("click", click);
 
     //click(data.features[3]);
     //u.exit().remove();
-
 
     // console.log(data.features.map(x => x.properties.boro_name = "Bronx"))
 
