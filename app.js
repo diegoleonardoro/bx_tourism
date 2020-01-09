@@ -1,7 +1,7 @@
 var width = 1000;
 var height = 530;
-var db = d3.map();
-var sparkline = d3.charts.sparkline().height(50).width(138);
+var db = d3.map(); // Looks for values by geoID.
+var sparkline = d3.charts.sparkline().height(50).width(138); // functiona that will draw the line.
 
 
 var svg = d3.select('svg')
@@ -11,7 +11,7 @@ var svg = d3.select('svg')
 var setDb = function (data) {  // This function parses data and formats it into a structure that the sparkline function
     data.forEach(function (d) {
         db.set(d.geoID, [
-            { "x": 1, "y": +d.q1 },
+            { "x": 1, "y": +d.q1 }, // q1, q2, q3, q4, are the data that will be shown in the line graph 
             { "x": 2, "y": +d.q2 },
             { "x": 3, "y": +d.q3 },
             { "x": 4, "y": +d.q4 }
@@ -30,7 +30,8 @@ var hover = function (d) {
     div.style.left = d3.event.pageX + 'px';
     div.style.top = d3.event.pageY + 'px';
     div.innerHTML = d.properties.ntaname;
-    var id = geoID(d); //unique geoID for the boroigh we are hovering over
+    
+    var id = geoID(d); //unique geoID for the borough we are hovering over
     d3.select("#tooltip").datum(db.get(id)).call(sparkline.draw);  // draws a line chart in the tooltip selection.
 };
 
@@ -55,10 +56,6 @@ d3.json('data.json').then(function (data) {
 
     var geoGenerator = d3.geoPath()
         .projection(projection);
-
-
-
-
 
 
     var color = d3.scaleLinear()
