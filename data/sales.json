@@ -1,0 +1,52 @@
+[
+    {
+        "year": 2018,
+        "Borough": "Bronx",
+        "averagePrice1familyHome": 499060
+    },
+    {
+        "year": 2016,
+        "Borough": "Bronx",
+        "averagePrice1familyHome": 478379
+    },
+    {
+        "year": 2018,
+        "Borough": "Manhattan",
+        "averagePrice1familyHome": 8235346
+    },
+    {
+        "year": 2016,
+        "Borough": "Manhattan",
+        "averagePrice1familyHome": 8176576
+    },
+    {
+        "year": 2018,
+        "Borough": "Brooklyn",
+        "averagePrice1familyHome": 980737
+    },
+    {
+        "year": 2016,
+        "Borough": "Brooklyn",
+        "averagePrice1familyHome": 876864
+    },
+    {
+        "year": 2018,
+        "Borough": "Queens",
+        "averagePrice1familyHome": 645921
+    },
+    {
+        "year": 2016,
+        "Borough": "Queens",
+        "averagePrice1familyHome": 613139
+    },
+    {
+        "year": 2018,
+        "Borough": "Staten Island",
+        "averagePrice1familyHome": 520214
+    },
+    {
+        "year": 2016,
+        "Borough": "Staten Island",
+        "averagePrice1familyHome": 483340
+    }
+]

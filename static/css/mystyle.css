@@ -1,4 +1,60 @@
 
+  .header-img {
+    width: 100%;
+    height: 800px;
+    background: url('https://raw.githubusercontent.com/diegoleonardoro/bronx_tourism/master/mefo-1103-bronxrevivalNEW.jpg');
+    background-size: cover;
+    margin-bottom: 80px;
+  }
+
+  
+  
+  
+  table, th, td {
+    border: 1px solid black;
+    margin-bottom: 60px;
+    margin-left: 250px;
+ }
+
+ th, td {
+     padding:10px;
+     text-align: center;
+ }
+  
+
+  circle {
+    fill: black;
+}
+
+#svgforScatterPlot {
+    border: 1px solid black;
+    overflow: visible; 
+    margin-bottom: 60px;
+    margin-left: 80px;
+}
+  
+
+
+  #svgForBarGraph {
+    overflow: visible;
+    margin-left: 40px;
+    margin-bottom: 60px;
+}
+
+
+  rect {
+    stroke-width:1px;
+}
+
+    
+    
+    
+    .boundary {
+      fill: none;
+      stroke: #888;
+      stroke-linejoin: round;
+    }
+    
     svg {
       border-style: solid;
       border-width: 1px;
@@ -10,8 +66,8 @@
       position: absolute;
       z-index: 2;
       background: rgba(0, 153, 76, 0.8);
-      width: 130px;
-      height: 20px;
+      width: 280px;
+      height: 30px;
       color: white;
       font-size: 14px;
       padding: 5px;

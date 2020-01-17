@@ -26,9 +26,18 @@ dataset1 = pd.read_excel("BronxPropertySalesDatasets/sales_bronx_03.xls")
 app = Flask (__name__)
 
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-
 json_url = os.path.join(SITE_ROOT, "data", "data.json")
 data = json.load(open(json_url))
+
+
+AIRBNB_SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+airbnb_json_url = os.path.join(AIRBNB_SITE_ROOT, "data", "airbnb_data.json")
+data_airbnb = json.load(open(airbnb_json_url))
+
+
+PROPERTYSALES_SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+propertySales_json_url = os.path.join(PROPERTYSALES_SITE_ROOT, "data", "sales.json")
+data_properysales = json.load(open(propertySales_json_url))
 
 
 csv_data = pd.read_csv ("neighborhoods-data.csv")
@@ -47,6 +56,25 @@ def get_data():
     global data    
     return json.dumps(data)
 
+
+
+@app.route('/airbnb_data')
+def get_airbnb_data():
+    global data_airbnb
+    return json.dumps(data_airbnb)
+
+
+
+
+@app.route('/real_estate_sales')
+def get_sales_data():
+    global data_properysales
+    return json.dumps(data_properysales)
+
+    
+
+
+
 @app.route('/tooltip_data')
 def get_csv_data():
     global tooltip_data 
@@ -54,9 +82,11 @@ def get_csv_data():
     return  tooltip_data
 
 
-                 
+
+
 if __name__ == "__main__":
     app.run(debug=True, 
          host='0.0.0.0', 
          port=9000, 
-         threaded=True) 
+         threaded=True,
+         TEMPLATES_AUTO_RELOAD = True) 
