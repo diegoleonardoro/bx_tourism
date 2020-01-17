@@ -49,6 +49,34 @@
     <div id="map"></div>
 
     <div id="tooltip"></div>
+
+
+
+
+    <select id="modelTable" onchange="createTableforModel();">
+        <option>---</option>
+        <option value="Different Building Type">Different Building Type</option>
+        <option value="Different Sqft">"Different Sqft"</option>
+        <option value="Different Neighborhood">Different Neighborhood</option>
+    </select>
+
+
+    <table id="tableModel">
+        <thead id="tableModelHead">
+            <tr>
+                <th>Sqft</th>
+                <th>Total Units</th>
+                <th>Neighborhood</th>
+                <th>Building Category</th>
+                <th>Predicted Price</th>
+            </tr>
+        </thead>
+        <tbody id="modelTableBody">
+        </tbody>
+    </table>
+
+
+
     <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
     <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
 

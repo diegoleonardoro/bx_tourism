@@ -49,13 +49,16 @@ for key, value in zip(csv_data["geoID"], csv_data[" test"]):
 
 @app.route("/")
 def home():
+
+
     return render_template("index.html")
+
+
 
 @app.route('/data')
 def get_data():
     global data    
     return json.dumps(data)
-
 
 
 @app.route('/airbnb_data')
@@ -64,17 +67,12 @@ def get_airbnb_data():
     return json.dumps(data_airbnb)
 
 
-
-
 @app.route('/real_estate_sales')
 def get_sales_data():
     global data_properysales
     return json.dumps(data_properysales)
 
     
-
-
-
 @app.route('/tooltip_data')
 def get_csv_data():
     global tooltip_data 

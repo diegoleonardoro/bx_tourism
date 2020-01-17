@@ -1062,3 +1062,205 @@ $(document).ready(function () {
 
 });
 
+
+
+
+
+
+
+
+
+var modelData = [
+
+    {
+        type: "Different Neighborhood",
+        sqft: 2000,
+        totalUnits: 2,
+        neighbrohood: 1,
+        buildingCategory: 5,
+        PredictedPrice: 521463
+
+    },
+
+    {
+        type: "Different Neighborhood",
+        sqft: 2000,
+        totalUnits: 2,
+        neighbrohood: 2,
+        buildingCategory: 5,
+        PredictedPrice: 520765
+
+    },
+
+    {
+        type: "Different Neighborhood",
+        sqft: 2000,
+        totalUnits: 2,
+        neighbrohood: 3,
+        buildingCategory: 5,
+        PredictedPrice: 520066
+
+    },
+
+    {
+        type: "Different Neighborhood",
+        sqft: 2000,
+        totalUnits: 2,
+        neighbrohood: 4,
+        buildingCategory: 5,
+        PredictedPrice: 519367
+
+    },
+    {
+        type: "Different Neighborhood",
+        sqft: 2000,
+        totalUnits: 2,
+        neighbrohood: 5,
+        buildingCategory: 5,
+        PredictedPrice: 518669
+
+    },
+
+    //-------------------------------
+
+
+    {
+        type: "Different Sqft",
+        sqft: 1300,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 5,
+        PredictedPrice: 492321
+
+    },
+
+    {
+        type: "Different Sqft",
+        sqft: 2500,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 5,
+        PredictedPrice: 531501
+
+    },
+
+    {
+        type: "Different Sqft",
+        sqft: 3300,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 5,
+        PredictedPrice: 557620
+
+    },
+
+    {
+        type: "Different Sqft",
+        sqft: 4000,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 5,
+        PredictedPrice: 580475
+
+    },
+    {
+        type: "Different Sqft",
+        sqft: 5000,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 5,
+        PredictedPrice: 613125
+
+    },
+
+
+    //-------------------------------
+
+
+    {
+        type: "Different Building Type",
+        sqft: 2700,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 1,
+        PredictedPrice: 422858
+
+    },
+
+    {
+        type: "Different Building Type",
+        sqft: 2700,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 2,
+        PredictedPrice: 451651
+
+    },
+
+    {
+        type: "Different Building Type",
+        sqft: 2700,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 3,
+        PredictedPrice: 480444
+
+    },
+
+    {
+        type: "Different Building Type",
+        sqft: 2700,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 4,
+        PredictedPrice: 509237
+
+    },
+    {
+        type: "Different Building Type",
+        sqft: 2700,
+        totalUnits: 2,
+        neighbrohood: 10,
+        buildingCategory: 5,
+        PredictedPrice: 538030
+
+    },
+
+]
+
+
+
+
+
+
+function createTableforModel(category) {
+
+    d3.selectAll("tr").remove()
+
+    var filtered_data_model = document.getElementById("modelTable").value;
+
+    // console.log(filtered_data_model)
+
+    var filtered_data_model = modelData.filter(x => x.type === filtered_data_model)
+
+    console.log(filtered_data_model)
+
+    for (var i = 0; i < filtered_data_model.length; i++) {
+        var row = d3.select('#modelTableBody').append('tr');
+        row.append('td').html(filtered_data_model[i].sqft);
+        row.append('td').html(filtered_data_model[i].totalUnits);
+        row.append('td').html(filtered_data_model[i].neighbrohood);
+        row.append('td').html(filtered_data_model[i].buildingCategory);
+        row.append('td').html(filtered_data_model[i].PredictedPrice);
+
+
+
+    }
+
+
+
+}
+
+
+
+createTableforModel()
