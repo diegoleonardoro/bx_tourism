@@ -40,6 +40,11 @@ propertySales_json_url = os.path.join(PROPERTYSALES_SITE_ROOT, "data", "sales.js
 data_properysales = json.load(open(propertySales_json_url))
 
 
+PROPERTYAVERAGES_SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+property_avgs_json_url = os.path.join(PROPERTYAVERAGES_SITE_ROOT, "data", "average_home_prices.json")
+data_propery_avgs = json.load(open(property_avgs_json_url))
+
+
 csv_data = pd.read_csv ("neighborhoods-data.csv")
 
 tooltip_data = {}
@@ -79,6 +84,11 @@ def get_csv_data():
     pprint (tooltip_data) 
     return  tooltip_data
 
+    
+@app.route('/average_home_price')
+def get_average_home_price():
+    global data_propery_avgs 
+    return  json.dumps(data_propery_avgs)
 
 
 

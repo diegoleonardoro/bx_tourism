@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+
+    <main>
+        <div class="header-img"></div>
+    </main>
+
+</head>
+
+<body>
+    <h1>Bronx Real Estate</h1>
+    <p id="firstP"> Historically, The bronx has had the lowest average price for 1 family homes in New York City.
+        However, since
+        2014, the average price for 1 family homes in The Bronx has steadily increased. If investors are looking for
+        accessible real estate opportunities, The Bronx is the place to look at. </p>
+    <h3 class="avgSalesTitle"> 1 Familiy Home Average Price (2008 - 2018)</h3>
+    <div id="linechart"></div>
+
+    <hr>
+
+    <h2>Average Home Price and Maximum Sale Price: </h2>
+
+    <div class="select-menu">
+        <select id="avgSalesTable" onchange="createTable();">
+            <option>Select a year:</option>
+            <option value="2018">2018</option>
+            <option value="2016">2016</option>
+            <option value="2014">2014</option>
+            <option value="2012">2012</option>
+            <option value="2010">2010</option>
+            <option value="2008">2008</option>
+        </select>
+    </div>
+
+    <table>
+        <thead>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <ul class="observationsAvgsPrice">
+        <li>From 2008 to 2010, 1 family home average prices declined in each borough</li>
+        <li>Staten Island and The Bronx have the lowest average</li>
+        <li>Manhattan's average price for a 1 family home reached its peak in 2014 with a price of $9.180.342 </li>
+        <li>The average 1 family home price from 2008 to 2018 in The Bronx remained within 400.000 with 499.000</li>
+    </ul>
+
+
+
+    <div id="barGraph"></div>
+
+    <hr>
+
+    <h2>Have a look at each neighborhood: </h2>
+
+    <h3 id="maptitle"> Median Household Income, Median Home Price, Residential sales(2018) in each Neighborhood: </h3>
+    <div id="map"></div>
+
+    <div id="tooltip"></div>
+
+    <ul class="observationsMap">
+        <li>Neighborhoods in north Bronx tend to have higher income and average home price. </li>
+        <li>Belmont is the only neighborhood where the average 1 family home price is over 1 million. </li>
+    </ul>
+
+    <hr>
+
+    <h2>Real Estate Price Predictor: </h2>
+    <p id="firstP"> The following table predicts real estate prices in the Bronx considering different building type,
+        different squqre feet and different neighbrohod. </p>
+
+
+    <select id="modelTable" onchange="createTableforModel();">
+        <option>Select Category</option>
+        <option value="Different Building Type">Different Building Type</option>
+        <option value="Different Sqft">Different Sqft</option>
+        <option value="Different Neighborhood">Different Neighborhood</option>
+    </select>
+
+
+    <table id="tableModel">
+        <thead id="tableModelHead">
+
+        </thead>
+        <tbody id="modelTableBody">
+        </tbody>
+    </table>
+
+
+
+    <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sparkline.js') }}"></script>
+
+
+
+</body>
+
+
+
+</html>
